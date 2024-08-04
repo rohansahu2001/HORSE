@@ -1,0 +1,86 @@
+<html>
+  
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer> </script>
+    
+    
+  </head>
+
+  <body>
+    
+    <div class="example-container">  <div id="example-scanning-overlay" class="hidden">
+      
+      <div class="inner">
+         <img src="hra.jpg" alt=""/> <div class="scanline"> </div>
+      </div></div>
+      <a-scene
+        mindar-image="imageTargetSrc:./targets1.mind; showStats: false; uiScanning: #example-scanning-overlay;"
+        embedded
+        color-space="sRGB"
+        renderer="colorManagement: true, physicallyCorrectLights"
+        vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false"
+      >
+        <a-assets>
+          
+        
+          <video id="scard-video" autoplay="false" loop="true"  src="2n.mp4" ></video>
+          <img id="for-preview" src="1.png" /> 
+            <img id="paintandquest-preview" src="2.png" />
+        <video id="paintandquest-video-mp4" autoplay="false" loop="true" src="hrs.mp4"></video>
+      
+          
+        </a-assets>
+
+        <a-camera
+          position="0 0 0"
+          look-controls="enabled: false"
+          cursor="fuse: false; rayOrigin: mouse;"
+          raycaster="far: 10000; objects: .clickable"
+        >
+        </a-camera>
+
+        <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0">
+          <a-entity id="portfolio-item0">
+              <a-video id="paintandquest-video-link" webkit-playsinline playsinline width="0.9" height="0.552" position="0 0 0"></a-video>
+              <a-image id="paintandquest-preview-button" class="clickable" src="#paintandquest-preview" alpha-test="0.5" position="0 0 0" height="0.552" width="0.9">
+              </a-image>
+
+          </a-entity>
+          <a-entity id="portfolio-item1"  rotation=" 0 0 0">
+            <!-- Second video entity -->
+            <a-video id="scard-video-link" webkit-playsinline playsinline width="0.9" height="0.552" position=" 0 0.7 0"></a-video>
+            
+            <!-- Image -->
+            <a-image id="scard-preview-button" class="clickable" src="#for-preview" alpha-test="0.5" position="0 0.7 0" height="0.552" width="0.9"></a-image>
+        </a-entity>
+        
+     
+   
+         
+          <a-text
+            value="CLICK TO SEE MAGIC"
+            color="#FFFFFF"
+            width="2"
+            position="-0.36 -0.32 0"
+            text-align="center"
+            scale="0.9 0.9 0.9"
+            font-weight="900"
+          ></a-text>
+          
+        </a-entity>
+      </a-scene>
+    </div>
+    
+  </body>
+
+</html>
